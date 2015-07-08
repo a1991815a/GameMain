@@ -1,0 +1,194 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="win32">
+      <UniqueIdentifier>{50bee9e3-e97c-47f5-ac1d-bfdf72d2e274}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="游戏引擎">
+      <UniqueIdentifier>{62d99fdf-f403-49c3-bec0-b10aa8ae5d6f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="游戏引擎\数据结构体">
+      <UniqueIdentifier>{cc01ab5b-4e95-4351-b20d-149dd50f8e50}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="游戏引擎\入口">
+      <UniqueIdentifier>{19b67ad4-bbcd-4b6c-b41f-557e63ccf0a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="游戏引擎\模板">
+      <UniqueIdentifier>{8695b065-aea6-4936-b388-107db7b1bb4f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="游戏引擎\计时器">
+      <UniqueIdentifier>{d42c7f63-548a-41c4-a58a-4c0877cc34ae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="游戏引擎\消息分发">
+      <UniqueIdentifier>{cdd20877-5e85-4fa2-823a-103f5b8b4c9b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="游戏引擎\消息分发\消息模型">
+      <UniqueIdentifier>{56ca5de9-57f7-4148-89fc-db645ee388a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="游戏引擎\消息分发\监听器">
+      <UniqueIdentifier>{0c759b48-37b8-4c77-9850-e73dc6b6c5ca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="文件头">
+      <UniqueIdentifier>{7ebb656b-c8a5-4ada-b09c-64f6b10c0e88}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="游戏引擎\模型">
+      <UniqueIdentifier>{f4d749e3-2cbf-4034-839e-e9d64301767c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DirectX工具">
+      <UniqueIdentifier>{18847f42-0a48-43d3-8937-fd5ccfa1cb0d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="游戏引擎\Ref容器">
+      <UniqueIdentifier>{8fb365b1-dd9c-4e3b-84b4-7a138f049832}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="游戏引擎\内存池管理">
+      <UniqueIdentifier>{cfb3d516-611a-4763-87ce-dba478fc7da7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="GameMain.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Timer.cpp">
+      <Filter>游戏引擎\计时器</Filter>
+    </ClCompile>
+    <ClCompile Include="TimerSystem.cpp">
+      <Filter>游戏引擎\计时器</Filter>
+    </ClCompile>
+    <ClCompile Include="Rect.cpp">
+      <Filter>游戏引擎\数据结构体</Filter>
+    </ClCompile>
+    <ClCompile Include="Application.cpp">
+      <Filter>游戏引擎\入口</Filter>
+    </ClCompile>
+    <ClCompile Include="AppDelegate.cpp">
+      <Filter>游戏引擎\入口</Filter>
+    </ClCompile>
+    <ClCompile Include="win32\Win32Utils.cpp">
+      <Filter>win32</Filter>
+    </ClCompile>
+    <ClCompile Include="win32\WinMain.cpp">
+      <Filter>win32</Filter>
+    </ClCompile>
+    <ClCompile Include="WndProc.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Vec2.cpp">
+      <Filter>游戏引擎\数据结构体</Filter>
+    </ClCompile>
+    <ClCompile Include="Event.cpp">
+      <Filter>游戏引擎\消息分发\消息模型</Filter>
+    </ClCompile>
+    <ClCompile Include="DispatchMessageSystem.cpp">
+      <Filter>游戏引擎\消息分发</Filter>
+    </ClCompile>
+    <ClCompile Include="KeyEventListener.cpp">
+      <Filter>游戏引擎\消息分发\监听器</Filter>
+    </ClCompile>
+    <ClCompile Include="MouseEventListener.cpp">
+      <Filter>游戏引擎\消息分发\监听器</Filter>
+    </ClCompile>
+    <ClCompile Include="EventListener.cpp">
+      <Filter>游戏引擎\消息分发\监听器</Filter>
+    </ClCompile>
+    <ClCompile Include="Director.cpp">
+      <Filter>游戏引擎\模型</Filter>
+    </ClCompile>
+    <ClCompile Include="DirectXUtils.cpp">
+      <Filter>DirectX工具</Filter>
+    </ClCompile>
+    <ClCompile Include="Ref.cpp">
+      <Filter>游戏引擎\内存池管理</Filter>
+    </ClCompile>
+    <ClCompile Include="MemoryPool.cpp">
+      <Filter>游戏引擎\内存池管理</Filter>
+    </ClCompile>
+    <ClCompile Include="MemoryPoolManager.cpp">
+      <Filter>游戏引擎\内存池管理</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Timer.h">
+      <Filter>游戏引擎\计时器</Filter>
+    </ClInclude>
+    <ClInclude Include="SingleInstance.h">
+      <Filter>游戏引擎\模板</Filter>
+    </ClInclude>
+    <ClInclude Include="ManagerTemplate.h">
+      <Filter>游戏引擎\模板</Filter>
+    </ClInclude>
+    <ClInclude Include="TimerSystem.h">
+      <Filter>游戏引擎\计时器</Filter>
+    </ClInclude>
+    <ClInclude Include="Application.h">
+      <Filter>游戏引擎\入口</Filter>
+    </ClInclude>
+    <ClInclude Include="Vec2.h">
+      <Filter>游戏引擎\数据结构体</Filter>
+    </ClInclude>
+    <ClInclude Include="Rect.h">
+      <Filter>游戏引擎\数据结构体</Filter>
+    </ClInclude>
+    <ClInclude Include="AppDelegate.h">
+      <Filter>游戏引擎\入口</Filter>
+    </ClInclude>
+    <ClInclude Include="win32\win32.h">
+      <Filter>win32</Filter>
+    </ClInclude>
+    <ClInclude Include="win32\Win32Utils.h">
+      <Filter>win32</Filter>
+    </ClInclude>
+    <ClInclude Include="Event.h">
+      <Filter>游戏引擎\消息分发\消息模型</Filter>
+    </ClInclude>
+    <ClInclude Include="EventTypes.h">
+      <Filter>游戏引擎\消息分发\消息模型</Filter>
+    </ClInclude>
+    <ClInclude Include="EventListener.h">
+      <Filter>游戏引擎\消息分发\监听器</Filter>
+    </ClInclude>
+    <ClInclude Include="DispatchMessageSystem.h">
+      <Filter>游戏引擎\消息分发</Filter>
+    </ClInclude>
+    <ClInclude Include="HeaderMacro.h">
+      <Filter>文件头</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyEventListener.h">
+      <Filter>游戏引擎\消息分发\监听器</Filter>
+    </ClInclude>
+    <ClInclude Include="MouseEventListener.h">
+      <Filter>游戏引擎\消息分发\监听器</Filter>
+    </ClInclude>
+    <ClInclude Include="EventInclude.h">
+      <Filter>游戏引擎\消息分发</Filter>
+    </ClInclude>
+    <ClInclude Include="Director.h">
+      <Filter>游戏引擎\模型</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectXUtils.h">
+      <Filter>DirectX工具</Filter>
+    </ClInclude>
+    <ClInclude Include="Map.h">
+      <Filter>游戏引擎\Ref容器</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector.h">
+      <Filter>游戏引擎\Ref容器</Filter>
+    </ClInclude>
+    <ClInclude Include="Ref.h">
+      <Filter>游戏引擎\内存池管理</Filter>
+    </ClInclude>
+    <ClInclude Include="MemoryPool.h">
+      <Filter>游戏引擎\内存池管理</Filter>
+    </ClInclude>
+    <ClInclude Include="MemoryPoolManager.h">
+      <Filter>游戏引擎\内存池管理</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
