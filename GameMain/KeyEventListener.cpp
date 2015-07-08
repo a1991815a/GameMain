@@ -1,7 +1,7 @@
 #include "KeyEventListener.h"
 
 KeyEventListener::KeyEventListener()
-	:OnKeyDown(nullptr), OnKeyUp(nullptr)
+	:EventListener(EVENT_KEY), OnKeyDown(nullptr), OnKeyUp(nullptr)
 {
 
 }

@@ -1,7 +1,8 @@
 #include "MouseEventListener.h"
 
 MouseEventListener::MouseEventListener()
-	:OnMouseLDown(nullptr), OnMouseLUp(nullptr), OnMouseMove(nullptr)
+	:EventListener(EVENT_MOUSE),
+	OnMouseLDown(nullptr), OnMouseLUp(nullptr), OnMouseMove(nullptr)
 {
 
 }

@@ -15,6 +15,11 @@ MemoryPool* MemoryPoolManager::getCurrentPool()
 	return m_poolList.back();
 }
 
+void MemoryPoolManager::init()
+{
+	new MemoryPool();
+}
+
 void MemoryPoolManager::push(MemoryPool* pool)
 {
 	m_poolList.push_back(pool);

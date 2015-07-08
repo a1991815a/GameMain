@@ -7,6 +7,7 @@ class MemoryPoolManager: public SingleInstance<MemoryPoolManager>{
 	DEFINE_INSTANCE_PRIVATE(MemoryPoolManager);
 public:
 	MemoryPool* getCurrentPool();
+	void init();
 	void push(MemoryPool* pool);
 	void pop();
 	void clear();

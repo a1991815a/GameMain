@@ -1,6 +1,7 @@
 #include "EventListener.h"
 
-EventListener::EventListener()
+EventListener::EventListener(EventTypes type)
+	:m_type(type)
 {
 	this->autorelease();
 }

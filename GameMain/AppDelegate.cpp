@@ -1,4 +1,5 @@
 #include "AppDelegate.h"
+#include "Director.h"
 
 AppDelegate::AppDelegate()
 {
@@ -12,7 +13,7 @@ AppDelegate::~AppDelegate()
 
 void AppDelegate::init()
 {
-
+	Director::getInstance()->init();
 }
 
 Application *const AppDelegate::getCurrentApplication()

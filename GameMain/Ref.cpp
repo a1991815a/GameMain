@@ -1,5 +1,7 @@
 #include "Ref.h"
 #include <stdexcept>
+#include "MemoryPoolManager.h"
+#include <windows.h>
 
 Ref::Ref()
 	:referenceCount(0), isAutoRelease(false)
@@ -20,6 +22,7 @@ void Ref::autorelease()
 {
 	++referenceCount;
 	isAutoRelease = true;
+	MemoryPoolManager::getInstance()->getCurrentPool()->push(this);
 }
 
 void Ref::release()

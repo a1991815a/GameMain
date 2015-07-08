@@ -13,9 +13,9 @@ class DispatchMessageSystem: public SingleInstance<DispatchMessageSystem>, publi
 public:
 	void dispatch();
 	void clear();
-	void dispatchMessage(EventTypes type, void* data = nullptr);
-	void dispatchKeyMessage(EventTypes type, char key, void* data = nullptr);
-	void dispatchMouseMessage(EventTypes type, int x, int y, void* data = nullptr);
+	void postMessage(EventTypes type, void* data = nullptr);
+	void postKeyMessage(EventTypes type, char key, void* data = nullptr);
+	void postMouseMessage(EventTypes type, int x, int y, void* data = nullptr);
 
 	char getKey() const;
 	const std::vector<char>& getKeys() const;

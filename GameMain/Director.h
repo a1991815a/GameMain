@@ -5,6 +5,7 @@
 class Director: public SingleInstance<Director>{
 	DEFINE_INSTANCE_PRIVATE(Director);
 public:
+	void init();
 	void mainloop();
 private:
 	
