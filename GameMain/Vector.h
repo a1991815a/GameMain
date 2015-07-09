@@ -97,7 +97,7 @@ template<typename dType>
 void 
 Vector<dType>::erase(int key)
 {
-	m_vector.at(key)->retain();
+	m_vector.at(key)->release();
 	m_vector.erase(m_vector.begin() + key);
 }
 

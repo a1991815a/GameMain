@@ -8,7 +8,6 @@ DXTexture::DXTexture()
 	:m_texture(nullptr)
 {
 	SET_NULL(m_info);
-	SET_NULL(m_palet);
 	this->autorelease();
 }
 
@@ -16,7 +15,7 @@ DXTexture::DXTexture( const char* path )
 	:m_texture(nullptr)
 {
 	SET_NULL(m_info);
-	SET_NULL(m_palet);
+
 	this->autorelease();
 	loadImage(path);
 }
@@ -34,6 +33,9 @@ void DXTexture::loadImage( const char* path )
 		m_texture->Release();
 		m_texture = nullptr;
 	}
+	IDirect3DTexture9* texture = nullptr;
+	m_name = path;
+
 	HRESULT result = D3DXCreateTextureFromFileExA(
 		_directUtils->getDirectDevice(),
 		path,
@@ -42,16 +44,15 @@ void DXTexture::loadImage( const char* path )
 		0,
 		D3DFMT_A8R8G8B8,
 		D3DPOOL_MANAGED,
-		D3DX_FILTER_LINEAR, D3DX_DEFAULT,
+		D3DX_DEFAULT, D3DX_DEFAULT,
 		0xFF000000,
 		&m_info,
-		&m_palet,
+		NULL,
 		&m_texture
 		);
 
 	if(FAILED(result))
 		throw std::runtime_error("file is not exist!");
-	m_name = path;
 }
 
 size_t DXTexture::getWidth() const

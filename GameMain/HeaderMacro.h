@@ -6,6 +6,25 @@
 
 #define ABSTRACT 
 
-#define SET_NULL(DATA) memset(&DATA, NULL, sizeof(DATA)) 
+#define SET_NULL(DATA) memset(&DATA, 0, sizeof(DATA)) 
+
+#define CREATE_FUNC(OBJ)				\
+static OBJ* create(){					\
+	OBJ* obj = new OBJ();				\
+	if (obj && obj->init()){			\
+		obj->autorelease();				\
+		return obj;						\
+	}									\
+	delete obj;							\
+	return nullptr;						\
+}
+
+enum NodeTypes
+{
+	SCENE,
+	LAYER,
+	SPRITE,
+	CAMERA
+};
 
 #endif

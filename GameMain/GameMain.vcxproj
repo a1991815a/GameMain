@@ -18,7 +18,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v100</PlatformToolset>
+    <PlatformToolset>v120</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
@@ -73,6 +73,8 @@
   <ItemGroup>
     <ClCompile Include="AppDelegate.cpp" />
     <ClCompile Include="Application.cpp" />
+    <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="CoordinateFunction.cpp" />
     <ClCompile Include="Director.cpp" />
     <ClCompile Include="DirectXUtils.cpp" />
     <ClCompile Include="DispatchMessageSystem.cpp" />
@@ -81,11 +83,15 @@
     <ClCompile Include="EventListener.cpp" />
     <ClCompile Include="GameMain.cpp" />
     <ClCompile Include="KeyEventListener.cpp" />
+    <ClCompile Include="Layer.cpp" />
     <ClCompile Include="MemoryPool.cpp" />
     <ClCompile Include="MemoryPoolManager.cpp" />
     <ClCompile Include="MouseEventListener.cpp" />
+    <ClCompile Include="Node.cpp" />
     <ClCompile Include="Rect.cpp" />
     <ClCompile Include="Ref.cpp" />
+    <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="Texture2D.cpp" />
     <ClCompile Include="TextureManager.cpp" />
     <ClCompile Include="Timer.cpp" />
@@ -98,6 +104,8 @@
   <ItemGroup>
     <ClInclude Include="AppDelegate.h" />
     <ClInclude Include="Application.h" />
+    <ClInclude Include="Camera.h" />
+    <ClInclude Include="CoordinateFunction.h" />
     <ClInclude Include="Director.h" />
     <ClInclude Include="DirectXUtils.h" />
     <ClInclude Include="DispatchMessageSystem.h" />
@@ -108,14 +116,18 @@
     <ClInclude Include="EventTypes.h" />
     <ClInclude Include="HeaderMacro.h" />
     <ClInclude Include="KeyEventListener.h" />
+    <ClInclude Include="Layer.h" />
     <ClInclude Include="ManagerTemplate.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="MemoryPool.h" />
     <ClInclude Include="MemoryPoolManager.h" />
     <ClInclude Include="MouseEventListener.h" />
+    <ClInclude Include="Node.h" />
     <ClInclude Include="Rect.h" />
     <ClInclude Include="Ref.h" />
+    <ClInclude Include="Scene.h" />
     <ClInclude Include="SingleInstance.h" />
+    <ClInclude Include="Sprite.h" />
     <ClInclude Include="Texture2D.h" />
     <ClInclude Include="TextureManager.h" />
     <ClInclude Include="Timer.h" />

@@ -18,9 +18,9 @@ LRESULT CALLBACK GameProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 	case WM_LBUTTONUP:
 		_dispathMessage->postMouseMessage(EVENT_MOUSEUP, LOWORD(lParam), HIWORD(lParam));
 		break;
-// 	case WM_MOUSEMOVE:
-// 		_dispathMessage->postMouseMessage(EVENT_MOUSEMOVE, LOWORD(lParam), HIWORD(lParam));
-// 		break;
+	case WM_MOUSEMOVE:
+		_dispathMessage->postMouseMessage(EVENT_MOUSEMOVE, LOWORD(lParam), HIWORD(lParam));
+		break;
 	case WM_CREATE:
 		AppDelegate::getInstance()->init();
 		GameInit(hWnd);

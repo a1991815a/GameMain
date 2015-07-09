@@ -19,7 +19,6 @@ public:
 private:
 	IDirect3DTexture9* m_texture;
 	D3DXIMAGE_INFO m_info;
-	PALETTEENTRY m_palet;
 	Rect m_rect;
 	std::string m_name;
 };

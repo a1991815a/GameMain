@@ -3,6 +3,11 @@
 #include "AppDelegate.h"
 #include "DirectXUtils.h"
 #include "EventInclude.h"
+#include "TextureManager.h"
+DXTexture* dx_tex = nullptr;
+
+int x = 50, y = 50;
+
 int GameMain(){
 	AppDelegate::getInstance()->setDesignStyle("我的测试窗口", 800, 600, false);
 	AppDelegate::getInstance()->getCurrentApplication()->run();
@@ -11,23 +16,23 @@ int GameMain(){
 
 void GameInit(HWND hWnd){
 	
-	_directUtils->init(hWnd);
+ 	_directUtils->init(hWnd);
 	KeyEventListener* listener = new KeyEventListener();
 	_dispathMessage->addListener(listener);
 	listener->OnKeyDown = [](Event* event)->bool{
 		switch (event->getKey())
 		{
 		case 'W':
-			OutputDebugStringA("输入:W \n");
+			y-=2;
 			break;
 		case 'S':
-			OutputDebugStringA("输入:S \n");
+			y+=2;
 			break;
 		case 'A':
-			OutputDebugStringA("输入:A \n");
+			x-=2;
 			break;
 		case 'D':
-			OutputDebugStringA("输入:D \n");
+			x+=2;
 			break;
 		default:
 			break;
@@ -38,6 +43,8 @@ void GameInit(HWND hWnd){
 }
 
 void GameDraw(){
-	_textureManager->getTexture("Vehicle.png")->visit(Vec2(0, 0),Vec2(50, 50));
+	Texture2D* t2d = _textureManager->getTexture("Vehicle_1.png");
+	t2d->visit(Vec2(0, 0), Vec2(x, y));
+	t2d->visit(Vec2(t2d->getWidth(), t2d->getHeight()), Vec2(50, 50));
 }
 

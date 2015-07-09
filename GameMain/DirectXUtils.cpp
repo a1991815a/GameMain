@@ -29,7 +29,7 @@ LRESULT DirectXUtils::init(HWND hWnd)
 	d3dpp.SwapEffect = D3DSWAPEFFECT_DISCARD;
 	if (FAILED(mp_d3d->CreateDevice(D3DADAPTER_DEFAULT, D3DDEVTYPE_HAL, 
 		hWnd,
-		D3DCREATE_SOFTWARE_VERTEXPROCESSING,
+		D3DCREATE_HARDWARE_VERTEXPROCESSING,
 		&d3dpp, &mp_d3dDevice)))
 		return E_FAIL;
 	 D3DXCreateSprite(mp_d3dDevice, &mp_sprite);

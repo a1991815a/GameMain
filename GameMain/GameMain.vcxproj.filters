@@ -57,6 +57,9 @@
     <Filter Include="游戏引擎\纹理管理\DX纹理">
       <UniqueIdentifier>{0bb1382a-d169-4140-9ff4-d13782e46dfd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="游戏引擎\坐标转换">
+      <UniqueIdentifier>{a392c6d4-07fe-4254-8c3a-fb839a5ef2a1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameMain.cpp">
@@ -127,6 +130,24 @@
     </ClCompile>
     <ClCompile Include="TextureManager.cpp">
       <Filter>游戏引擎\纹理管理</Filter>
+    </ClCompile>
+    <ClCompile Include="Node.cpp">
+      <Filter>游戏引擎\模型</Filter>
+    </ClCompile>
+    <ClCompile Include="Sprite.cpp">
+      <Filter>游戏引擎\模型</Filter>
+    </ClCompile>
+    <ClCompile Include="CoordinateFunction.cpp">
+      <Filter>游戏引擎\坐标转换</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>游戏引擎\模型</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>游戏引擎\模型</Filter>
+    </ClCompile>
+    <ClCompile Include="Layer.cpp">
+      <Filter>游戏引擎\模型</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -213,6 +234,24 @@
     </ClInclude>
     <ClInclude Include="DXTexture.h">
       <Filter>游戏引擎\纹理管理\DX纹理</Filter>
+    </ClInclude>
+    <ClInclude Include="Node.h">
+      <Filter>游戏引擎\模型</Filter>
+    </ClInclude>
+    <ClInclude Include="Sprite.h">
+      <Filter>游戏引擎\模型</Filter>
+    </ClInclude>
+    <ClInclude Include="CoordinateFunction.h">
+      <Filter>游戏引擎\坐标转换</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>游戏引擎\模型</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>游戏引擎\模型</Filter>
+    </ClInclude>
+    <ClInclude Include="Layer.h">
+      <Filter>游戏引擎\模型</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

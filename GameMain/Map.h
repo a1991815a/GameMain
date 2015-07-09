@@ -22,12 +22,12 @@ public:
 	inline typename Map<kType, T>::iterator end();
 	inline typename Map<kType, T>::const_iterator end() const;
 	inline typename Map<kType, T>::size_type size() const;
-	inline typename Map<kType, T>::reference at(typename Map<kType, T>::key_type key);
-	inline typename Map<kType, T>::const_reference at(typename Map<kType, T>::key_type key) const;
-	inline typename Map<kType, T>::iterator find(typename Map<kType, T>::key_type key);
-	inline typename Map<kType, T>::const_iterator find(typename Map<kType, T>::key_type key) const;
-	inline void insert(typename Map<kType, T>::key_type key, typename Map<kType, T>::mapped_type data);
-	inline void erase(typename Map<kType, T>::key_type key);
+	inline typename Map<kType, T>::mapped_type& at(typename const Map<kType, T>::key_type& key);
+	inline typename const Map<kType, T>::mapped_type& at(typename const Map<kType, T>::key_type& key) const;
+	inline typename Map<kType, T>::iterator find(typename const Map<kType, T>::key_type& key);
+	inline typename Map<kType, T>::const_iterator find(typename const Map<kType, T>::key_type& key) const;
+	inline void insert(typename const Map<kType, T>::key_type& key, typename Map<kType, T>::mapped_type& data);
+	inline void erase(typename const Map<kType, T>::key_type& key);
 	inline void clear();
 
 private:
@@ -51,21 +51,21 @@ void Map<kType, T>::clear()
 
 template<typename kType, typename T>
 typename Map<kType, T>::const_iterator
-Map<kType, T>::find(typename Map<kType, T>::key_type key) const
+Map<kType, T>::find(typename const Map<kType, T>::key_type& key) const
 {
 	return m_map.find(key);
 }
 
 template<typename kType, typename T>
 typename Map<kType, T>::iterator
-Map<kType, T>::find(typename Map<kType, T>::key_type key)
+Map<kType, T>::find(typename const Map<kType, T>::key_type& key)
 {
 	return m_map.find(key);
 }
 
 template<typename kType, typename T>
 void 
-Map<kType, T>::erase(typename Map<kType, T>::key_type key)
+Map<kType, T>::erase(typename const Map<kType, T>::key_type& key)
 {
 	m_map.erase(key);
 	m_map.at(key)->release();
@@ -73,22 +73,22 @@ Map<kType, T>::erase(typename Map<kType, T>::key_type key)
 
 template<typename kType, typename T>
 void 
-Map<kType, T>::insert(typename Map<kType, T>::key_type key, typename Map<kType, T>::mapped_type data)
+Map<kType, T>::insert(typename const Map<kType, T>::key_type& key, typename Map<kType, T>::mapped_type& data)
 {
 	data->retain();
 	m_map[key] = data;
 }
 
 template<typename kType, typename T>
-typename Map<kType, T>::const_reference
-Map<kType, T>::at(typename Map<kType, T>::key_type key) const
+typename const Map<kType, T>::mapped_type&
+Map<kType, T>::at(typename const Map<kType, T>::key_type& key) const
 {
 	return m_map.at(key);
 }
 
 template<typename kType, typename T>
-typename Map<kType, T>::reference
-Map<kType, T>::at(typename Map<kType, T>::key_type key)
+typename Map<kType, T>::mapped_type&
+Map<kType, T>::at(typename const Map<kType, T>::key_type& key)
 {
 	return m_map.at(key);
 }

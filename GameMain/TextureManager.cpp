@@ -27,7 +27,7 @@ void TextureManager::popTexture( const std::string& key_path )
 
 Texture2D* TextureManager::getTexture( const std::string& key_path ) const
 {
-	return m_textureList.at(key_path).second;
+	return m_textureList.at(key_path);
 }
 
 void TextureManager::loadImage( const std::string& name_path, size_t row /*= 0*/, size_t col /*= 0*/ )
@@ -49,12 +49,12 @@ void TextureManager::loadImage( const std::string& name_path, size_t row /*= 0*/
 	std::string bac_path = name_path;
 
 	pre_path.erase(name_path.find('.'), pre_path.size());
-	bac_path.erase(0, bac_path.size() - pre_path.size());
+	bac_path.erase(0, pre_path.size());
 
-	for (int row_i = 0; row_i < row; row_i++)
+	for (size_t row_i = 0; row_i < row; row_i++)
 	{
 		int cur_y = row_i * cut_height; 
-		for (int col_i = 0; col_i < col; col_i++, count_i++)
+		for (size_t col_i = 0; col_i < col; col_i++, count_i++)
 		{
 			int cur_x = col_i * cut_width;
 			Rect rect;
@@ -87,5 +87,5 @@ void TextureManager::popDxTexture( const std::string& key_path )
 
 DXTexture* TextureManager::getDxTexture( const std::string& key_path ) const
 {
-	return m_dxImageList.at(key_path).second;
+	return m_dxImageList.at(key_path);
 }
