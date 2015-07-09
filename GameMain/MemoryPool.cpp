@@ -25,9 +25,8 @@ void MemoryPool::clear()
 {
 	if (isClear)
 		return;
-	std::vector<Ref*> clearList;
-	m_refList.swap(clearList);
-	for(int i = 0; i < clearList.size(); i++)
-		clearList.at(i)->release();
+	for(size_t i = 0; i < m_refList.size(); i++)
+		m_refList.at(i)->release();
+	m_refList.clear();
 	isClear = true;
 }

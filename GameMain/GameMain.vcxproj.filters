@@ -51,6 +51,12 @@
     <Filter Include="游戏引擎\内存池管理">
       <UniqueIdentifier>{cfb3d516-611a-4763-87ce-dba478fc7da7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="游戏引擎\纹理管理">
+      <UniqueIdentifier>{1aa08a61-b5d8-476b-8834-ec08fc66ae61}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="游戏引擎\纹理管理\DX纹理">
+      <UniqueIdentifier>{0bb1382a-d169-4140-9ff4-d13782e46dfd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameMain.cpp">
@@ -112,6 +118,15 @@
     </ClCompile>
     <ClCompile Include="MemoryPoolManager.cpp">
       <Filter>游戏引擎\内存池管理</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture2D.cpp">
+      <Filter>游戏引擎\纹理管理</Filter>
+    </ClCompile>
+    <ClCompile Include="DXTexture.cpp">
+      <Filter>游戏引擎\纹理管理\DX纹理</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureManager.cpp">
+      <Filter>游戏引擎\纹理管理</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -189,6 +204,15 @@
     </ClInclude>
     <ClInclude Include="MemoryPoolManager.h">
       <Filter>游戏引擎\内存池管理</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureManager.h">
+      <Filter>游戏引擎\纹理管理</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture2D.h">
+      <Filter>游戏引擎\纹理管理</Filter>
+    </ClInclude>
+    <ClInclude Include="DXTexture.h">
+      <Filter>游戏引擎\纹理管理\DX纹理</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -29,21 +29,52 @@ LRESULT DirectXUtils::init(HWND hWnd)
 	d3dpp.SwapEffect = D3DSWAPEFFECT_DISCARD;
 	if (FAILED(mp_d3d->CreateDevice(D3DADAPTER_DEFAULT, D3DDEVTYPE_HAL, 
 		hWnd,
-		D3DCREATE_HARDWARE_VERTEXPROCESSING,
+		D3DCREATE_SOFTWARE_VERTEXPROCESSING,
 		&d3dpp, &mp_d3dDevice)))
 		return E_FAIL;
 	 D3DXCreateSprite(mp_d3dDevice, &mp_sprite);
+	 
 	 return S_OK;
 }
 
 void DirectXUtils::render()
 {
-	mp_d3dDevice->Clear(0, NULL, D3DCLEAR_TARGET, D3DCOLOR_ARGB(255, 0, 0, 0), 1, 0);
-	mp_d3dDevice->BeginScene();
-	mp_sprite->Begin(D3DRS_ALPHABLENDENABLE);
-	GameDraw();
-	mp_sprite->End();
+	if(!SUCCEEDED(mp_d3dDevice->Clear(0, NULL, D3DCLEAR_TARGET, D3DCOLOR_ARGB(255, 0, 0, 0), 0, 0)))
+		return;
+	if(!SUCCEEDED(mp_d3dDevice->BeginScene()))
+		return;
+	if(SUCCEEDED(mp_sprite->Begin(D3DXSPRITE_ALPHABLEND)))
+	{
+		GameDraw();
+		mp_sprite->End();
+	}
 	mp_d3dDevice->EndScene();
 	mp_d3dDevice->Present(0, 0, 0, 0);
+}
+
+void DirectXUtils::drawImage( DXTexture* texture, 
+	int src_x, int src_y, int src_width, int src_height,
+	const Vec2& anchorPoint,const Vec2& pos ) const
+{
+	RECT rect = { 0 };
+	rect.left = src_x;
+	rect.right = src_x + src_width;
+	rect.top = src_y;
+	rect.bottom = src_y + src_height;
+	D3DXVECTOR3 anchorPoint3V, pos3V;
+	anchorPoint3V.x = anchorPoint.x;
+	anchorPoint3V.y = anchorPoint.y;
+	anchorPoint3V.z = 0;
+	pos3V.x = pos.x;
+	pos3V.y = pos.y;
+	pos3V.z = 0;
+
+	mp_sprite->Draw(
+		texture->m_texture,
+		&rect,
+		&anchorPoint3V,
+		&pos3V,
+		0xFFFFFFFF
+		);
 }
 

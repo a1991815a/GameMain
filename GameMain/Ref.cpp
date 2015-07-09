@@ -27,7 +27,7 @@ void Ref::autorelease()
 
 void Ref::release()
 {
-	if (--referenceCount == 0)
+	if (isAutoRelease && --referenceCount == 0)
 		delete this;
 }
 

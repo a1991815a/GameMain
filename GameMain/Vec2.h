@@ -1,9 +1,11 @@
 #ifndef __VEC2__
 #define __VEC2__
+#include <d3dx9math.h>
+
 
 struct Vec2{
 	Vec2();
-	Vec2(int x, int y);
+	Vec2(float x, float y);
 
 	Vec2 operator+(const Vec2& obj) const;
 	Vec2 operator-(const Vec2& obj) const;
@@ -14,10 +16,12 @@ struct Vec2{
 	bool operator==(const Vec2& obj) const;
 	bool operator!=(const Vec2& obj) const;
 
-	int x;
-	int y;
-	int& width;
-	int& height;
+	D3DXVECTOR3 toDXVec3() const;
+
+	float x;
+	float y;
+	float& width;
+	float& height;
 };
 
 #endif

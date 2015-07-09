@@ -12,7 +12,7 @@ protected:
 	Ref();
 	virtual ~Ref();
 private:
-	int referenceCount;
+	size_t referenceCount;
 	bool isAutoRelease;
 };
 #endif

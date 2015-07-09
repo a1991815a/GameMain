@@ -61,7 +61,7 @@ void DispatchMessageSystem::postKeyMessage(EventTypes type, char key, void* data
 	}
 }
 
-void DispatchMessageSystem::postMouseMessage(EventTypes type, int x, int y, void* data /*= nullptr*/)
+void DispatchMessageSystem::postMouseMessage(EventTypes type, float x, float y, void* data /*= nullptr*/)
 {
 	Event* event = new Event(type, data);
 	pushVector(event);

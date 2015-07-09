@@ -3,7 +3,6 @@
 #include "AppDelegate.h"
 #include "DirectXUtils.h"
 #include "EventInclude.h"
-
 int GameMain(){
 	AppDelegate::getInstance()->setDesignStyle("ÎÒµÄ²âÊÔ´°¿Ú", 800, 600, false);
 	AppDelegate::getInstance()->getCurrentApplication()->run();
@@ -35,9 +34,10 @@ void GameInit(HWND hWnd){
 		}
 		return true;
 	};
+	_textureManager->loadImage("Vehicle.png", 9, 12);
 }
 
 void GameDraw(){
-	
+	_textureManager->getTexture("Vehicle.png")->visit(Vec2(0, 0),Vec2(50, 50));
 }
 

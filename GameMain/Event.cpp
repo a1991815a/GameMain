@@ -17,12 +17,12 @@ Vec2 Event::getLocation() const
 	return _dispathMessage->getLocation();
 }
 
-int Event::getLocationX() const
+float Event::getLocationX() const
 {
 	return _dispathMessage->getLocation().x;
 }
 
-int Event::getLocationY() const
+float Event::getLocationY() const
 {
 	return _dispathMessage->getLocation().y;
 }

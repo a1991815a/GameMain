@@ -15,7 +15,7 @@ public:
 	void clear();
 	void postMessage(EventTypes type, void* data = nullptr);
 	void postKeyMessage(EventTypes type, char key, void* data = nullptr);
-	void postMouseMessage(EventTypes type, int x, int y, void* data = nullptr);
+	void postMouseMessage(EventTypes type, float x, float y, void* data = nullptr);
 
 	char getKey() const;
 	const std::vector<char>& getKeys() const;

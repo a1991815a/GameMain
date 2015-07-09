@@ -12,8 +12,8 @@ private:
 public:
 	EventTypes getType() const;
 	Vec2 getLocation() const;
-	int getLocationX() const;
-	int getLocationY() const;
+	float getLocationX() const;
+	float getLocationY() const;
 	char getKey() const;
 	std::vector<char> getKeys() const;
 

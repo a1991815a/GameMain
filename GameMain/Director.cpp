@@ -10,7 +10,7 @@ Director::Director()
 
 Director::~Director()
 {
-
+	
 }
 
 void Director::init()
