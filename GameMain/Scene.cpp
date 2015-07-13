@@ -3,11 +3,18 @@
 Scene::Scene()
 {
 	setNodeType(SCENE);
+	
+}
+
+Scene::~Scene()
+{
+	
 }
 
 bool Scene::init()
 {
 	m_camera = Camera::create();
+	
 	return true;
 }
 
@@ -18,5 +25,5 @@ Camera* Scene::getCamera() const
 
 void Scene::visit() const
 {
-	
+	visitChilds();
 }

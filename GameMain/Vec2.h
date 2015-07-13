@@ -4,7 +4,14 @@
 
 
 struct Vec2{
+	float x;
+	float y;
+	float& width;
+	float& height;
+
+//¹¹Ôìº¯Êý
 	Vec2();
+	Vec2(const Vec2& copy_obj);
 	Vec2(float x, float y);
 
 	Vec2 operator+(const Vec2& obj) const;
@@ -17,11 +24,6 @@ struct Vec2{
 	bool operator!=(const Vec2& obj) const;
 
 	D3DXVECTOR3 toDXVec3() const;
-
-	float x;
-	float y;
-	float& width;
-	float& height;
 };
 
 #endif

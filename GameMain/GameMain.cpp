@@ -40,6 +40,7 @@ void GameInit(HWND hWnd){
 		return true;
 	};
 	_textureManager->loadImage("Vehicle.png", 9, 12);
+	
 }
 
 void GameDraw(){

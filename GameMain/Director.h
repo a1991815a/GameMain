@@ -8,6 +8,9 @@ class Director: public SingleInstance<Director>{
 public:
 	void init();
 	void mainloop();
+	void visit() const;
+	Scene* getCurrentScene() const;
+	void repalceScene(Scene* scene);
 private:
 	Scene* m_currentScene;
 };

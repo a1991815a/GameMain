@@ -14,6 +14,12 @@ Vec2::Vec2( float x, float y )
 
 }
 
+Vec2::Vec2(const Vec2& copy_obj)
+	:x(copy_obj.x), y(copy_obj.y), width(this->x), height(this->y)
+{
+
+}
+
 Vec2 Vec2::operator+( const Vec2& obj ) const
 {
 	Vec2 vec2;

@@ -33,9 +33,16 @@ public:
 	inline typename Vector<dType>::reference back();
 	inline typename Vector<dType>::const_reference back() const;
 	inline void clear();
+	inline void reserve(int size);
 private:
 	std::vector<dType> m_vector;
 };
+
+template<typename dType>
+void Vector<dType>::reserve(int size)
+{
+	m_vector.reserve(size);
+}
 
 template<typename dType>
 Vector<dType>::~Vector()

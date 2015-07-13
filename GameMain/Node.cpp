@@ -1,13 +1,17 @@
 #include "Node.h"
 #include <stdexcept>
+#include <d3dx9math.h>
+#include <d3dx9math.h>
 
 Node::Node()
-	:m_tag(0), m_enable(true), m_visiable(true), 
-	m_anchorPoint(Vec2(0, 0)), m_position(Vec2(0, 0)), m_contentSize(Vec2(0, 0)),
+	:m_tagName(), m_tag(0), m_enable(true), m_visiable(true), 
+	m_anchorPoint(0, 0), m_position(0, 0),
+	m_scale(1, 1), m_rotate(0, 0, 0), 
+	m_contentSize(0, 0),
 	m_NodeZorder(0), m_GlobalZorder(0), m_VertexZ(0), 
 	m_parent(nullptr), m_parentVectorIndex(-1)
 {
-	
+	resetMatrix();
 }
 
 Node::~Node()
@@ -18,7 +22,10 @@ Node::~Node()
 void Node::pushRenderComand()
 {
 	if (isEnable() && isVisiable())
+	{
+		initMatrix();
 		this->visit();
+	}
 }
 
 void Node::setTagName(const std::string& name)
@@ -43,6 +50,7 @@ void Node::setVisiable(bool visiable)
 
 void Node::setAnchorPoint(const Vec2& anchorPoint)
 {
+
 	m_anchorPoint = anchorPoint;
 }
 
@@ -71,6 +79,60 @@ void Node::setPositionX(float x)
 void Node::setPositionY(float y)
 {
 	m_position.y = y;
+}
+
+void Node::setScale(const Vec2& scale)
+{
+	m_scale = scale;
+	m_contentSize.width *= m_scale.x;
+	m_contentSize.height *= m_scale.y;
+}
+
+void Node::setScale(float scale_x, float scale_y)
+{
+	m_scale.x = scale_x;
+	m_scale.y = scale_y;
+	m_contentSize.width *= m_scale.x;
+	m_contentSize.height *= m_scale.y;
+}
+
+void Node::setScaleX(float scale_x)
+{
+	m_scale.x = scale_x;
+	m_contentSize.width *= m_scale.x;
+}
+
+void Node::setScaleY(float scale_y)
+{
+	m_scale.y = scale_y;
+	m_contentSize.height *= m_scale.y;
+}
+
+void Node::setRotate(const Vec3& rotate)
+{
+	m_rotate = rotate;
+}
+
+void Node::setRotate(float rotate_x, float rotate_y, float rotate_z)
+{
+	m_rotate.x = rotate_x;
+	m_rotate.y = rotate_y;
+	m_rotate.z = rotate_z;
+}
+
+void Node::setRotateX(float rotate_x)
+{
+	m_rotate.x = rotate_x;
+}
+
+void Node::setRotateY(float rotate_y)
+{
+	m_rotate.y = rotate_y;
+}
+
+void Node::setRotateZ(float rotate_z)
+{
+	m_rotate.z = rotate_z;
 }
 
 void Node::setContentSize(const Vec2& size)
@@ -147,6 +209,41 @@ float Node::getPositionX() const
 float Node::getPositionY() const
 {
 	return m_position.y;
+}
+
+const Vec2& Node::getScale() const
+{
+	return m_scale;
+}
+
+float Node::getScaleX() const
+{
+	return m_scale.x;
+}
+
+float Node::getScaleY() const
+{
+	return m_scale.y;
+}
+
+const Vec3& Node::getRotate() const
+{
+	return m_rotate;
+}
+
+float Node::getRotateX() const
+{
+	return m_rotate.x;
+}
+
+float Node::getRotateY() const
+{
+	return m_rotate.y;
+}
+
+float Node::getRotateZ() const
+{
+	return m_rotate.z;
 }
 
 const Vec2& Node::getContentSize() const
@@ -253,4 +350,45 @@ NodeTypes Node::getNodeType() const
 void Node::setNodeType(NodeTypes type)
 {
 	m_nodeType = type;
+}
+
+void Node::visitChilds() const
+{
+	for (size_t i = 0; i < m_childList.size(); i++)
+		m_childList.at(i)->visit();
+}
+
+void Node::resetMatrix()
+{
+	D3DXMatrixTranslation(&m_mMatrix, 0, 0, 0);
+}
+
+void Node::initMatrix()
+{
+	resetMatrix();
+	D3DXMATRIX matrix;
+	if(m_rotate.x != 0)
+		D3DXMatrixRotationX(&matrix, m_rotate.x * D3DX_PI);
+	m_mMatrix =  m_mMatrix * matrix;
+	if(m_rotate.y != 0)
+		D3DXMatrixRotationY(&matrix, m_rotate.y * D3DX_PI);
+	m_mMatrix =  m_mMatrix * matrix;
+	if(m_rotate.z != 0)
+		D3DXMatrixRotationZ(&matrix, m_rotate.z * D3DX_PI);
+	m_mMatrix =  m_mMatrix * matrix;
+
+	//执行完自身旋转再进行父亲旋转缩放平移
+	if (m_parent != nullptr)
+		m_mMatrix = m_mMatrix * m_parent->m_mMatrix;
+
+	if(m_scale.x != 1 || m_scale.y != 1)
+		D3DXMatrixScaling(&matrix, m_scale.x, m_scale.y, 1);
+	m_mMatrix =  m_mMatrix * matrix;
+	D3DXMatrixTranslation(&matrix, m_position.x, m_position.y, 0);
+	m_mMatrix =  m_mMatrix * matrix;
+
+	for(size_t i = 0; i < m_childList.size(); i++){
+		auto& child = m_childList.at(i);
+		child->initMatrix();
+	}
 }

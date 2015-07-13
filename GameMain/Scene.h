@@ -6,13 +6,13 @@
 
 class Scene: public Node{
 	Scene();
+	~Scene();
 public:
 	CREATE_FUNC(Scene);
 	bool init();
 	Camera* getCamera() const;
 
 	virtual void visit() const override;
-
 private:
 	Camera* m_camera;
 };

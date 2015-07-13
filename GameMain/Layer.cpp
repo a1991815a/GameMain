@@ -8,5 +8,5 @@ bool Layer::init()
 
 void Layer::visit() const
 {
-	
+	visitChilds();
 }

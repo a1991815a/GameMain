@@ -60,6 +60,18 @@
     <Filter Include="游戏引擎\坐标转换">
       <UniqueIdentifier>{a392c6d4-07fe-4254-8c3a-fb839a5ef2a1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="DirectX工具\绘图工具">
+      <UniqueIdentifier>{74624678-d0b5-4a73-ae03-a5e09caa73fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="游戏引擎\渲染引擎">
+      <UniqueIdentifier>{271dd6a5-7e66-468a-a2a7-9960cb2919b1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="游戏引擎\渲染引擎\渲染指令">
+      <UniqueIdentifier>{be455939-3aa2-4404-8830-31e3df6b3d34}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="游戏引擎\渲染引擎\MVP矩阵管理">
+      <UniqueIdentifier>{8c4e06c7-1044-4a56-88b8-e8fcb5159af0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameMain.cpp">
@@ -148,6 +160,18 @@
     </ClCompile>
     <ClCompile Include="Layer.cpp">
       <Filter>游戏引擎\模型</Filter>
+    </ClCompile>
+    <ClCompile Include="DXDrawUtils.cpp">
+      <Filter>DirectX工具\绘图工具</Filter>
+    </ClCompile>
+    <ClCompile Include="Vec3.cpp">
+      <Filter>游戏引擎\数据结构体</Filter>
+    </ClCompile>
+    <ClCompile Include="QuadCommand.cpp">
+      <Filter>游戏引擎\渲染引擎\渲染指令</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderEngine.cpp">
+      <Filter>游戏引擎\渲染引擎</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -252,6 +276,18 @@
     </ClInclude>
     <ClInclude Include="Layer.h">
       <Filter>游戏引擎\模型</Filter>
+    </ClInclude>
+    <ClInclude Include="DXDrawUtils.h">
+      <Filter>DirectX工具\绘图工具</Filter>
+    </ClInclude>
+    <ClInclude Include="Vec3.h">
+      <Filter>游戏引擎\数据结构体</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderEngine.h">
+      <Filter>游戏引擎\渲染引擎</Filter>
+    </ClInclude>
+    <ClInclude Include="QuadCommand.h">
+      <Filter>游戏引擎\渲染引擎\渲染指令</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

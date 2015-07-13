@@ -5,6 +5,11 @@ Camera::Camera()
 	setNodeType(CAMERA);
 }
 
+Camera::~Camera()
+{
+	
+}
+
 bool Camera::init()
 {
 	setPosition(Vec2(0, 0));

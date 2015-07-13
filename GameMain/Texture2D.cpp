@@ -19,6 +19,7 @@ Texture2D::Texture2D( const char* path )
 	m_rect.height = m_texture->getHeight();
 	m_name = m_texture->getName();
 	m_texture->retain();
+	
 }
 
 Texture2D::Texture2D( DXTexture* tex )

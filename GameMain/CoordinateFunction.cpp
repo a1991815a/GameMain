@@ -1,7 +1,9 @@
 #include "CoordinateFunction.h"
+#include "Scene.h"
 
-Vec2 toLocalCoordinate(Node* node, const Vec2& point)
+Vec2 toLocalCoordinate(const Node* const in_node, const Vec2& point)
 {
+	const Node* node = in_node;
 	Vec2 node_pos = point;
 	for (; node && node->getNodeType() != SCENE; node = node->getParent())
 		node_pos -= node->getPosition();
@@ -11,8 +13,9 @@ Vec2 toLocalCoordinate(Node* node, const Vec2& point)
 	return node_pos;
 }
 
-Vec2 toGlobalCoordinate(Node* node, const Vec2& point)
+Vec2 toGlobalCoordinate(const Node* const in_node, const Vec2& point)
 {
+	const Node* node = in_node;
 	Vec2 g_pos = point;
 	for (; node && node->getNodeType() != SCENE; node = node->getParent())
 		g_pos += node->getPosition();
@@ -22,8 +25,9 @@ Vec2 toGlobalCoordinate(Node* node, const Vec2& point)
 	return g_pos;
 }
 
-Vec2 toScreenCoordinate(Node* node, const Vec2& point)
+Vec2 toScreenCoordinate(const Node* const in_node, const Vec2& point)
 {
+	const Node* node = in_node;
 	Vec2 s_pos = point;
 	for (; node && node->getNodeType() != SCENE; node = node->getParent())
 		s_pos += node->getPosition();
@@ -31,7 +35,9 @@ Vec2 toScreenCoordinate(Node* node, const Vec2& point)
 		throw std::logic_error("This node' parent is not exist!");
 	s_pos += node->getPosition();
 
-	node = node->getParent();
+	const Scene* scene = dynamic_cast<const Scene*>(node);
+	node = scene->getCamera();
+
 	if (node == nullptr || node->getNodeType() != CAMERA)
 		throw std::logic_error("There isn't Camera or this scene is not sub Camera!");
 	s_pos -= node->getPosition();

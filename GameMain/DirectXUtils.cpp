@@ -22,9 +22,8 @@ LRESULT DirectXUtils::init(HWND hWnd)
 {
 	if (NULL == (mp_d3d = Direct3DCreate9(D3D_SDK_VERSION)))
 		return E_FAIL;
-	D3DPRESENT_PARAMETERS d3dpp;
+	D3DPRESENT_PARAMETERS d3dpp = { 0 };
 
-	ZeroMemory(&d3dpp, sizeof(d3dpp));
 	d3dpp.Windowed = TRUE;
 	d3dpp.SwapEffect = D3DSWAPEFFECT_DISCARD;
 	if (FAILED(mp_d3d->CreateDevice(D3DADAPTER_DEFAULT, D3DDEVTYPE_HAL, 
@@ -33,7 +32,8 @@ LRESULT DirectXUtils::init(HWND hWnd)
 		&d3dpp, &mp_d3dDevice)))
 		return E_FAIL;
 	 D3DXCreateSprite(mp_d3dDevice, &mp_sprite);
-	 
+	 D3DXMatrixTranslation(&m_unitMatrix, 0, 0, 0);
+
 	 return S_OK;
 }
 
@@ -76,5 +76,18 @@ void DirectXUtils::drawImage( DXTexture* texture,
 		&pos3V,
 		0xFFFFFFFF
 		);
+}
+
+void DirectXUtils::drawImage(IDirect3DTexture9* dx_tex, const Rect* draw_rect, const Vec2* anchorPoint, const D3DXMATRIX* final_matrix) const
+{
+	RECT rect;
+	rect.left = draw_rect->x;
+	rect.right = draw_rect->x + draw_rect->width;
+	rect.top = draw_rect->y;
+	rect.bottom = draw_rect->y + draw_rect->height;
+
+	mp_sprite->SetTransform(final_matrix);
+	mp_sprite->Draw(dx_tex, &rect, &anchorPoint->toDXVec3(), NULL, NULL);
+	mp_sprite->SetTransform(&m_unitMatrix);
 }
 

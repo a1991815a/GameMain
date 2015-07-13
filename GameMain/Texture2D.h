@@ -9,6 +9,7 @@
 
 class Texture2D: public Ref{
 	friend class TextureManager;
+	friend class DXDrawUtils;
 public:
 	Texture2D();
 	Texture2D(const char* path);

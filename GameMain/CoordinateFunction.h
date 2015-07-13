@@ -3,8 +3,8 @@
 #include "Vec2.h"
 #include "Node.h"
 
-Vec2 toLocalCoordinate(Node* node, const Vec2& point);
-Vec2 toGlobalCoordinate(Node* node, const Vec2& point);
-Vec2 toScreenCoordinate(Node* node, const Vec2& point);
+Vec2 toLocalCoordinate(const Node* const in_node, const Vec2& point);
+Vec2 toGlobalCoordinate(const Node* const in_node, const Vec2& point);
+Vec2 toScreenCoordinate(const Node* const in_node, const Vec2& point);
 
 #endif
